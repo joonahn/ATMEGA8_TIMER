@@ -11,9 +11,9 @@ ISR(TIMER0_OVF_vect)
 {
 	counter++;
 
-	if(counter % 61==0) //0.125초 경과
+	if(counter % _ ==0) //0.125초 경과
 	{
-		if(counter >= 488) //1초 경과
+		if(counter >= _ ) //1초 경과
 		{	counter = 0;	
 			r_timer ++;		
 		}
@@ -28,9 +28,9 @@ int main(void)
 {
     while (1) 
     {
-		DDRB = 0x01; // PB0 핀을 output mode로 설정
-		TIMSK = 0x01; // TIMER0 overflow interrupt 사용 설정
-		TCCR0 = 0x03; // prescalar를 64로 설정
+		DDRB = _ ; // PB0 핀을 output mode로 설정
+		TIMSK = _ ; // TIMER0 overflow interrupt 사용 설정
+		TCCR0 = _ ; // prescalar를 64로 설정
 
 		sei(); // 사용 설정한 interrupt를 활성화
 
@@ -38,13 +38,13 @@ int main(void)
 			
 			if(b_timer %2 == 0) 
 			{
-				PORTB = 0x01;  
+				PORTB = _ ;  
 			}
 			else 
-				PORTB = 0x00;  
+				PORTB = _ ;  
 		}
 		else 
-			PORTB = 0x00;
+			PORTB = _ ;
 					
     }
 }
